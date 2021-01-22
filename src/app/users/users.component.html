@@ -1,0 +1,49 @@
+<div class="content">
+  <div class="search">
+    <mat-form-field>
+      <mat-label>Фильтрация</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+  </div>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Номер</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef> Логин</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Имя</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.first_name}} </mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef> Фамилия</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.last_name}} </mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="isActive">
+      <mat-header-cell *matHeaderCellDef> Онлайн</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.is_active ? 'Онлайн' : 'Не онлайн'}}</mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastLogin">
+      <mat-header-cell *matHeaderCellDef> Последний логин</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.last_login}} </mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="isSuperuser">
+      <mat-header-cell *matHeaderCellDef> Суперпользователь</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.isSuperuser ? 'Суперпользователь' : ''}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row class="content__row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

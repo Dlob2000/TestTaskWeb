@@ -1,0 +1,22 @@
+.content {
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  position: fixed;
+  .search {
+    display: flex;
+    justify-content: center;
+    mat-form-field {
+      width: 50%;
+    }
+  }
+  mat-table {
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 100%;
+    .content__row:hover {
+      cursor: pointer;
+      background: #c1c1c1;
+    }
+  }
+}

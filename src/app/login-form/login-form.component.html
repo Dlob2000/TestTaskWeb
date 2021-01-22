@@ -1,0 +1,35 @@
+<div class="login-form">
+  <div class="from__content">
+    <div class="form__title">
+      <div>
+        <p>Добро пожаловать!</p>
+      </div>
+    </div>
+    <div>
+      <form [formGroup]="loginForm" class="form">
+        <mat-form-field class="full-width">
+          <mat-label>Логин</mat-label>
+          <input matInput formControlName="login">
+          <mat-error *ngIf="loginForm.get('login').hasError('required')">
+            Поле Логин обязательно
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Пароль</mat-label>
+          <input matInput formControlName="password" type="password">
+          <mat-error *ngIf="loginForm.get('password').hasError('required')">
+            Поле Пароль обязательно
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <mat-error class="form-error" *ngIf="isAuthError">
+            Неверный логин или пароль.
+          </mat-error>
+        </div><div class="button-handler">
+        <button mat-button (submit)="submit()" [disabled]="!loginForm.valid" (click)="submit()">Войти</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
